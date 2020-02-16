@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,400&display=swap');
-// GLOBALS
+// BACKGROUNDS
 $l_page_bg: #e6e6e6;
 $d_page_bg: #232323;
+// SHADOWS
+$l_shadow: 10px 10px 20px lighten($d_page_bg,
+50);
+$d_shadow: 10px 10px 20px darken($d_page_bg,
+50);
 @mixin gradient_blue-pink-yellow($direction) {
     background-image: linear-gradient(to $direction, #2ef2d8, #00e0fc, #00c9ff, #00a9ff, #997eff, #d163dd, #f246af, #ff357d, #ff5d60, #ff8846, #ffb332, #ffdc37);
 }
@@ -19,15 +24,107 @@ $d_page_bg: #232323;
     ;
 }
 
+.transition {
+    transition: all 0.25s ease-in-out;
+}
+
 html {
     background: $l_page_bg;
     font-family: 'Montserrat', sans-serif;
     height: 200vh
 }
 
+html[data-theme='dark'] {
+    background: $d_page_bg;
+    .overlap-content {
+        color: $l_page_bg;
+        box-shadow: $d_shadow;
+        background: url("../img/orange-bubbles-dark.png");
+        background-size: cover;
+        background-position: right;
+        background-repeat: no-repeat;
+        .content label {
+            box-shadow: $d_shadow;
+        }
+    }
+    .landing {
+        background: url("../img/blue-bubbles-dark.png");
+        background-size: cover;
+        background-position: left;
+        background-repeat: no-repeat;
+        .landing-title {
+            border-color: $l_page_bg;
+            color: $l_page_bg;
+        }
+    }
+    .sidebar,
+    .sidebar-top,
+    .container {
+        background-color: $d_page_bg;
+        box-shadow: $d_shadow;
+    }
+    .dark-mode-toggle {
+        background: $l_page_bg;
+        color: $d_page_bg;
+    }
+    .tooltip,
+    .tooltip-top {
+        background: $l_page_bg;
+        -webkit-text-fill-color: $d_page_bg;
+        .fa-caret-left {
+            -webkit-text-fill-color: $l_page_bg;
+        }
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 1.5em;
+    left: 1.5em;
+    background: $d_page_bg;
+    padding: 0.7em;
+    border-radius: 15px;
+    color: $l_page_bg;
+    input[type=checkbox] {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+    label {
+        margin: 0 auto;
+        display: flex;
+        border-radius: 100px;
+        position: relative;
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 55px;
+        height: 30px;
+        background: darken($l_page_bg, 10);
+        transition: all 0.25s ease-in-out;
+    }
+    label:after {
+        border-radius: 50%;
+        position: absolute;
+        content: '';
+        background: #fff;
+        width: 20px;
+        height: 20px;
+        top: 5px;
+        left: 4px;
+        transition: ease-in-out 200ms;
+    }
+    input:checked+label {
+        background: #3cea93;
+    }
+    input:checked+label:after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+    }
 }
 
 .credits {
@@ -132,21 +229,116 @@ $wrapper-margin-size: 10%;
     align-items: center;
     flex-direction: column;
     padding: 2em 0;
-    width: 5em;
+    width: 5.5em;
     margin: 0 $wrapper-margin-size / 6;
     height: 36em;
     border-radius: 1em;
     background: white;
-    box-shadow: 10px 10px 20px lighten($d_page_bg, 50);
+    box-shadow: $l_shadow;
 }
 
-.logo {
+.sidebar-top {
+    z-index: 3;
+    position: fixed;
     display: flex;
+    align-items: center;
+    padding: 0 2em;
+    height: 5em;
+    top: $wrapper-margin-size / 6;
+    margin: 0;
+    width: calc(100% - $wrapper-margin-size / 6);
+    left: $wrapper-margin-size / 6;
+    right: $wrapper-margin-size / 6;
+    border-radius: 1em;
+    background: white;
+    box-shadow: $l_shadow;
+}
+
+// TABS TOP
+.tabs-top {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    .tab-top {
+        display: flex;
+        align-items: center;
+        margin: 0 1.5em;
+        font-size: 30px;
+        @include gradient_blue-pink-yellow(right);
+        background-size: 3.4em;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.25s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            background-position: -1.5em;
+        }
+    }
+}
+
+.tabs {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    .tab {
+        display: flex;
+        align-items: center;
+        margin: 0.5em 0;
+        font-size: 30px;
+        @include gradient_blue-pink-yellow(right);
+        background-size: 3.4em;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.25s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            background-position: -1.5em;
+        }
+    }
+}
+
+.tooltip-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $d_page_bg;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    padding: 10px 10px;
+    width: 6.5em;
+    -webkit-text-fill-color: white;
+    margin: 8em 0.1em 0 0.05em;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+    z-index: 99999;
+    transform: translateX(2em);
+    .fa-caret-left {
+        font-size: 30px;
+        position: absolute;
+        margin: -0.8em 0.03em 0 0;
+        background: none;
+        -webkit-text-fill-color: $d_page_bg;
+        border: none;
+        transform: rotate(90deg);
+    }
+}
+
+.tooltip-container-top {
     position: absolute;
-    width: 3em;
-    height: 3em;
-    background: linear-gradient(to right bottom, #2ef2d8, #00c7ff, #60a2ff, #bf6ce4, #eb12aa);
-    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1em;
+    pointer-events: none;
 }
 
 .tooltip {
@@ -184,40 +376,25 @@ $wrapper-margin-size: 10%;
     pointer-events: none;
 }
 
-.tabs {
-    height: 100%;
-    width: 100%;
+.logo {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    i {
-        display: flex;
-        align-items: center;
-        margin: 0.5em 0;
-        font-size: 30px;
-        @include gradient_blue-pink-yellow(right);
-        background-size: 3.4em;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        transition: all 0.25s ease-in-out;
-        cursor: pointer;
-        &:hover {
-            background-position: -1.5em;
-        }
-    }
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    background: linear-gradient(to right bottom, #2ef2d8, #00c7ff, #60a2ff, #bf6ce4, #eb12aa);
+    border-radius: 50%;
 }
 
 .container {
     display: flex;
     margin: 0 $wrapper-margin-size / 6;
     padding: 0;
-    box-shadow: 10px 10px 20px lighten($d_page_bg, 50);
+    box-shadow: $l_shadow;
     width: auto;
     height: auto;
     background-color: white;
     border-radius: 1em;
+    transition: all 0.25s ease-in-out;
 }
 
 .landing {
@@ -227,10 +404,10 @@ $wrapper-margin-size: 10%;
     height: 40em;
     width: 100%;
     background-image: url("../img/blue-bubbles.png");
-    background-attachment: scroll;
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
+    transition: all 0.25s ease-in-out;
     .landing-title {
         width: 3em;
         font-size: 70px;
@@ -239,6 +416,7 @@ $wrapper-margin-size: 10%;
         padding-bottom: 0.2em;
         border-bottom: 3px solid black;
         margin-right: 30%;
+        transition: all 0.25s ease-in-out;
     }
     .overlap-content {
         z-index: 1;
@@ -257,11 +435,13 @@ $wrapper-margin-size: 10%;
         background-position: right;
         background-repeat: no-repeat;
         background-color: white;
-        box-shadow: 10px 10px 20px lighten($d_page_bg, 50);
+        box-shadow: $l_shadow;
+        transition: all 0.25s ease-in-out;
         h1 {
             font-weight: 400;
             margin-right: 5%;
             justify-self: flex-start;
+            transition: all 0.25s ease-in-out;
         }
         .content {
             display: flex;
@@ -270,6 +450,7 @@ $wrapper-margin-size: 10%;
             width: 100%;
             height: calc(100% - 2em);
             padding-bottom: 2em;
+            transition: all 0.25s ease-in-out;
             input[type=button] {
                 visibility: hidden;
                 opacity: 0;
@@ -288,7 +469,7 @@ $wrapper-margin-size: 10%;
                 background-size: 15em auto;
                 cursor: pointer;
                 transition: all 0.25s ease-in-out;
-                box-shadow: 10px 10px 20px lighten($d_page_bg, 50);
+                box-shadow: $l_shadow;
                 &:hover {
                     background-position: -6em;
                     color: $d_page_bg;
