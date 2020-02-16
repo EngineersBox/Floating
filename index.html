@@ -5,13 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/748966e9e1.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <title>Floating</title>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="sidebar"></div>
+        <div class="sidebar">
+            <div class="logo"></div>
+            <div class="tabs">
+                <i class="fas fa-home" id="home-hover" onmouseover="showTooltip('home-hover', 'home');" onmouseout="hideTooltip('home-hover', 'home');"></i>
+                <i class="fas fa-shield-alt" id="security-hover" onmouseover="showTooltip('security-hover', 'security');" onmouseout="hideTooltip('security-hover', 'security');"></i>
+                <i class="fas fa-hdd" id="infrastructure-hover" onmouseover="showTooltip('infrastructure-hover', 'infrastructure');" onmouseout="hideTooltip('infrastructure-hover', 'infrastructure');"></i>
+                <i class="fas fa-address-book" id="contact-hover" onmouseover="showTooltip('contact-hover', 'contact');" onmouseout="hideTooltip('contact-hover', 'contact');"></i>
+                <div class="tooltip-container">
+                    <div class="tooltip" id="home"><i class="fas fa-caret-left"></i>Home</div>
+                    <div class="tooltip" id="security"><i class="fas fa-caret-left"></i>Security</div>
+                    <div class="tooltip" id="infrastructure"><i class="fas fa-caret-left"></i>Infrastructure</div>
+                    <div class="tooltip" id="contact"><i class="fas fa-caret-left"></i>Contact</div>
+                </div>
+            </div>
+        </div>
         <div class="container landing">
             <h1 class="landing-title">FLOATING</h1>
             <div class="overlap-content">
@@ -40,8 +55,9 @@
         <label for="show-credits">CONTENT ATTRIBUTION</label>
         <ul id="creditations">
             <h1>CONTENT ATTRIBUTION</h1>
-            <li><a href="https://www.vectorstock.com/royalty-free-vector/abstract-liquid-bubbles-shapes-vector-14987675 " target="_blank ">Abstract liquid bubbles shapes at VectorStock</a></li>
-            <li><a href="https://www.vectorstock.com/royalty-free-vector/background-with-abstract-shapes-vector-14987616" target="_blank">Background with abstract shapes at VectorStock</a></li>
+            <li>Abstract liquid bubbles shapes at <a href="https://www.vectorstock.com/royalty-free-vector/abstract-liquid-bubbles-shapes-vector-14987675 " target="_blank ">VectorStock</a></li>
+            <li>Background with abstract shapes at <a href="https://www.vectorstock.com/royalty-free-vector/background-with-abstract-shapes-vector-14987616" target="_blank">VectorStock</a></li>
+            <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
         </ul>
     </div>
 </body>
