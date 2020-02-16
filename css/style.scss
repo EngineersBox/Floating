@@ -55,13 +55,27 @@ body {
         transition: all 0.25s ease-in-out;
         list-style: none;
         li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-top: 1em;
             color: darken($l_page_bg, 40);
+            &::before {
+                content: '';
+                display: inline-block;
+                height: 1em;
+                width: 1em;
+                background-image: url("../img/right-arrow.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 0.3em;
+            }
         }
         a {
             color: $l_page_bg;
             text-decoration: none;
             border-bottom: 2px solid lighten(#ff8037, 15);
+            transition: all 0.25s ease-in-out;
             &:hover {
                 border-bottom: 2px solid #ff8037;
             }

@@ -58,14 +58,36 @@ body {
 }
 
 .credits ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 1em;
   color: gray;
+}
+
+.credits ul li::before {
+  content: '';
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  background-image: url("../img/right-arrow.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 0.3em;
 }
 
 .credits ul a {
   color: #e6e6e6;
   text-decoration: none;
   border-bottom: 2px solid #ffb184;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .credits ul a:hover {
