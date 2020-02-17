@@ -28,11 +28,13 @@ window.addEventListener('scroll', function() {
     }
 });
 
+const navBarChangeDist = 600;
+
 window.addEventListener('resize', function() {
     if (window.innerWidth >= 830) {
         return;
     }
-    if (window.scrollY <= 200) {
+    if (window.scrollY <= navBarChangeDist) {
         // SHOW NORMAL TABS
         return;
     }
@@ -53,23 +55,13 @@ function showCredits() {
 function showTooltip(id, target) {
     const t = document.getElementById(target).style;
     const d = document.getElementById(id).style;
-    if (window.scrollY > 200) {
-        d.marginTop = "0.5em";
-    } else {
-        d.marginLeft = "0.5em";
-    }
     t.opacity = 0.9;
-    t.transform = 'translate' + (window.scrollY > 100 ? 'Y' : 'X') + '(0em)';
+    t.transform = 'translate' + (window.scrollY > navBarChangeDist ? 'Y' : 'X') + '(0em)';
 }
 
 function hideTooltip(id, target) {
     const t = document.getElementById(target).style;
     const d = document.getElementById(id).style;
-    if (window.scrollY > 200) {
-        d.marginTop = 0;
-    } else {
-        d.marginLeft = 0;
-    }
     t.opacity = 0;
-    t.transform = 'translate' + (window.scrollY > 100 ? 'Y' : 'X') + '(2em)';
+    t.transform = 'translate' + (window.scrollY > navBarChangeDist ? 'Y' : 'X') + '(2em)';
 }

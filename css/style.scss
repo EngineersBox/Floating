@@ -259,7 +259,6 @@ $wrapper-margin-size: 10%;
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     .tab-top {
@@ -320,7 +319,7 @@ $wrapper-margin-size: 10%;
     opacity: 0;
     transition: all 0.25s ease-in-out;
     z-index: 99999;
-    transform: translateX(2em);
+    transform: translateY(2em);
     .fa-caret-left {
         font-size: 30px;
         position: absolute;
@@ -337,7 +336,7 @@ $wrapper-margin-size: 10%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 1em;
+    margin-right: 1em;
     pointer-events: none;
 }
 

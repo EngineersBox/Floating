@@ -311,10 +311,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -411,8 +407,8 @@ body {
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   z-index: 99999;
-  -webkit-transform: translateX(2em);
-          transform: translateX(2em);
+  -webkit-transform: translateY(2em);
+          transform: translateY(2em);
 }
 
 .tooltip-top .fa-caret-left {
@@ -438,7 +434,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 1em;
+  margin-right: 1em;
   pointer-events: none;
 }
 
