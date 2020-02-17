@@ -18,8 +18,10 @@ const scrollChanged = [
     "tab"
 ];
 
+const navBarChangeDist = 600;
+
 window.addEventListener('scroll', function() {
-    const scrollPoint = window.scrollY > 200;
+    const scrollPoint = window.scrollY > navBarChangeDist;
     for (const name of scrollChanged) {
         for (const elem of Array.from(document.getElementsByClassName(name + (scrollPoint ? "" : "-top")))) {
             elem.classList.remove(name + (scrollPoint ? "" : "-top"));
@@ -27,8 +29,6 @@ window.addEventListener('scroll', function() {
         }
     }
 });
-
-const navBarChangeDist = 600;
 
 window.addEventListener('resize', function() {
     if (window.innerWidth >= 830) {
@@ -52,16 +52,14 @@ function showCredits() {
     }
 }
 
-function showTooltip(id, target) {
+function showTooltip(target) {
     const t = document.getElementById(target).style;
-    const d = document.getElementById(id).style;
     t.opacity = 0.9;
     t.transform = 'translate' + (window.scrollY > navBarChangeDist ? 'Y' : 'X') + '(0em)';
 }
 
-function hideTooltip(id, target) {
+function hideTooltip(target) {
     const t = document.getElementById(target).style;
-    const d = document.getElementById(id).style;
     t.opacity = 0;
     t.transform = 'translate' + (window.scrollY > navBarChangeDist ? 'Y' : 'X') + '(2em)';
 }
