@@ -542,18 +542,20 @@ body {
 }
 
 .landing .landing-title {
+  position: absolute;
   width: 3em;
   font-size: 70px;
   font-weight: 200;
   margin-top: 4%;
   padding-bottom: 0.2em;
   border-bottom: 3px solid black;
-  margin-right: 30%;
+  right: 31.5%;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
 
 .landing .overlap-content {
+  position: absolute;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -568,7 +570,8 @@ body {
   margin-top: 4%;
   padding: 30px;
   float: right;
-  margin-right: 10%;
+  right: 10%;
+  top: 25%;
   border-radius: 1em;
   width: 30vw;
   height: 30em;
