@@ -264,7 +264,7 @@ $wrapper-margin-size: 10%;
     .tab-top {
         display: flex;
         align-items: center;
-        margin: 0 1.5em;
+        margin: 0 1.4em;
         font-size: 30px;
         @include gradient_blue-pink-yellow(right);
         background-size: 3.4em;
@@ -315,7 +315,7 @@ $wrapper-margin-size: 10%;
     padding: 10px 10px;
     width: 6.5em;
     -webkit-text-fill-color: white;
-    margin: 8em 0.1em 0 0.05em;
+    margin: 8em -0.2em 0 0em;
     opacity: 0;
     transition: all 0.25s ease-in-out;
     z-index: 99999;

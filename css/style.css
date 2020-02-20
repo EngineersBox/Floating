@@ -326,7 +326,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 1.5em;
+  margin: 0 1.4em;
   font-size: 30px;
   background-image: -webkit-gradient(linear, left top, right top, from(#2ef2d8), color-stop(#00e0fc), color-stop(#00c9ff), color-stop(#00a9ff), color-stop(#997eff), color-stop(#d163dd), color-stop(#f246af), color-stop(#ff357d), color-stop(#ff5d60), color-stop(#ff8846), color-stop(#ffb332), to(#ffdc37));
   background-image: linear-gradient(to right, #2ef2d8, #00e0fc, #00c9ff, #00a9ff, #997eff, #d163dd, #f246af, #ff357d, #ff5d60, #ff8846, #ffb332, #ffdc37);
@@ -402,7 +402,7 @@ body {
   padding: 10px 10px;
   width: 6.5em;
   -webkit-text-fill-color: white;
-  margin: 8em 0.1em 0 0.05em;
+  margin: 8em -0.2em 0 0em;
   opacity: 0;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
