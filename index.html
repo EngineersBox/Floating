@@ -11,6 +11,12 @@
     <link href="css/solid.css" rel="stylesheet">
     <link href="css/regular.css" rel="stylesheet">
     <link href="css/brands.css" rel="stylesheet">
+    <!-- Hihglight.js Code -->
+    <link rel="stylesheet" href="css/atom-one-dark.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
     <title>Floating</title>
 </head>
 
@@ -51,15 +57,65 @@
             </div>
         </div>
     </div>
-    <div class="padding"></div>
-    <div class="padding"></div>
-    <!-- <div class="wrapper">
-        <div class="container main">
+    <div class="padding p20"></div>
+    <div class="wrapper">
+        <div class="container code">
+            <div class="w-actions">
+                <i class="fas fa-circle w-close"></i>
+                <i class="fas fa-circle w-minimize"></i>
+                <i class="fas fa-circle w-maximize"></i>
+            </div>
+            <pre class="w-highlight">
+                <code class="typescript">
+export class IceCreamComponent {
+    @Emoji()
+    flavor = 'vanilla';
+}
 
+
+// Property Decorator
+function Emoji() {
+    return function(target: Object, key: string | symbol) {
+
+        let val = target[key];
+
+        const getter = () =>  {
+            return val;
+        };
+        const setter = (next) => {
+            console.log('updating flavor...');
+            val = `🍦 ${next} 🍦`;
+        };
+
+        Object.defineProperty(target, key, {
+            get: getter,
+            set: setter,
+            enumerable: true,
+            configurable: true,
+        });
+
+    };
+}
+                </code>
+            </pre>
         </div>
-    </div> -->
-    <div class="padding"></div>
-    <div class="padding"></div>
+        <div class="container code-about">
+            <h1>
+                <div class="ts-logo"></div>
+                TypeScript
+                <span class="decorator-span">@Decorators</span>
+            </h1>
+            <div class="text-container">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt fugiat adipisci aspernatur <span class="emphasise">sequi excepturi</span>, quod assumenda nisi quam enim natus eius impedit ut quos illo porro, recusandae minima nihil?
+                    Accusamus?
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi doloremque, <span class="emphasise">asperiores iste</span> nesciunt deleniti reiciendis quibusdam praesentium nulla ut explicabo!</p>
+                <input type="button" id="Explore">
+                <label for="Explore"><span class="underline">Arti</span>cle</label>
+            </div>
+        </div>
+    </div>
+    <div class="padding p5"></div>
     <div class="credits">
         <input type="checkbox" id="show-credits" name="show-credits" class="show-credits" onclick="showCredits();">
         <label for="show-credits">CONTENT ATTRIBUTION</label>
@@ -68,6 +124,7 @@
             <li>Abstract liquid bubbles shapes at <a href="https://www.vectorstock.com/royalty-free-vector/abstract-liquid-bubbles-shapes-vector-14987675 " target="_blank "> VectorStock</a></li>
             <li>Background with abstract shapes at <a href="https://www.vectorstock.com/royalty-free-vector/background-with-abstract-shapes-vector-14987616" target="_blank"> VectorStock</a></li>
             <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+            <li><a target="_blank" href="https://icons8.com/icons/set/typescript">Color icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
         </ul>
     </div>
     <script src="js/main.js"></script>

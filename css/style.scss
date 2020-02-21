@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cousine:400,700|Montserrat:100,300,400,700|PT+Mono|Source+Code+Pro:300,400,700&display=swap');
 // BACKGROUNDS
 $l_page_bg: #e6e6e6;
 $d_page_bg: #232323;
 // SHADOWS
-$l_shadow: 10px 10px 20px lighten($d_page_bg,
-50);
-$d_shadow: 10px 10px 20px darken($d_page_bg,
-50);
+$l_shadow: 10px 10px 20px rgba(35,
+35,
+35,
+0.3);
+$d_shadow: 10px 10px 20px rgba(5,
+5,
+5,
+0.55);
 @mixin gradient_blue-pink-yellow($direction) {
     background-image: linear-gradient(to $direction, #2ef2d8, #00e0fc, #00c9ff, #00a9ff, #997eff, #d163dd, #f246af, #ff357d, #ff5d60, #ff8846, #ffb332, #ffdc37);
 }
@@ -73,6 +77,15 @@ html[data-theme='dark'] {
         -webkit-text-fill-color: $d_page_bg;
         .fa-caret-left {
             -webkit-text-fill-color: $l_page_bg;
+        }
+    }
+    .code {
+        background-color: #282c34;
+    }
+    .code-about {
+        color: $l_page_bg;
+        .text-container {
+            color: $l_page_bg;
         }
     }
 }
@@ -173,6 +186,7 @@ body {
             text-decoration: none;
             border-bottom: 2px solid lighten(#ff8037, 15);
             transition: all 0.25s ease-in-out;
+            margin: 0 0.3em;
             &:hover {
                 border-bottom: 2px solid #ff8037;
             }
@@ -210,7 +224,15 @@ body {
 }
 
 .padding {
-    height: 5em;
+    &.p5 {
+        height: 5em;
+    }
+    &.p10 {
+        height: 10em;
+    }
+    &.p20 {
+        height: 20em;
+    }
     width: 100%;
     margin: 0;
     padding: 0;
@@ -473,6 +495,117 @@ $wrapper-margin-size: 10%;
                     background-position: -6em;
                     color: $d_page_bg;
                 }
+            }
+        }
+    }
+}
+
+.code {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #282c34;
+    .w-actions {
+        .fa-circle {
+            margin: 0 0.15em;
+            border-radius: 50%;
+        }
+        .w-close {
+            color: #ff5d60;
+        }
+        .w-minimize {
+            color: #ffb332;
+        }
+        .w-maximize {
+            color: #4cec6f;
+        }
+    }
+    .w-highlight {
+        width: 100%;
+        height: auto;
+        border: none;
+        margin: 0 0 -2em 0;
+        padding: 0 20px;
+        code {
+            font-family: 'Cousine', ;
+            font-weight: 400;
+            font-size: .95em;
+        }
+    }
+}
+
+.code-about {
+    width: 30%;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    h1 {
+        display: flex;
+        font-weight: 400;
+        align-self: flex-start;
+        margin-bottom: 1em;
+        .decorator-span {
+            color: #61aeee;
+            background-color: #282c34;
+            border-radius: 7px;
+            padding: 5px;
+            margin-top: -0.15em;
+            margin-left: 0.2em;
+        }
+        .ts-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 5px;
+            background-size: 48px;
+            background-position: center;
+            background-color: #007acc;
+            background-image: url("../img/typescript.svg");
+            margin-right: 0.2em;
+        }
+    }
+    .text-container {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        color: $d_page_bg;
+        p {
+            width: auto;
+            line-height: 1.4em;
+        }
+        .emphasise {
+            border-bottom: 2px solid #ff7154;
+            transition: all 0.25s ease-in-out;
+            &:hover {
+                border-bottom: 2px solid darken(#ff7154, 10);
+                color: lighten($d_page_bg, 20);
+            }
+        }
+        input[type=button] {
+            visibility: hidden;
+            opacity: 0;
+        }
+        label {
+            display: flex;
+            align-self: flex-end;
+            justify-content: center;
+            width: 5em;
+            height: 1.2em;
+            color: $l_page_bg;
+            font-size: 20px;
+            border-radius: 1.5em;
+            padding: 0.4em 7%;
+            @include gradient_yellow-purple(right);
+            background-size: 15em auto;
+            cursor: pointer;
+            transition: all 0.25s ease-in-out;
+            box-shadow: $l_shadow;
+            &:hover {
+                background-position: -6em;
+                color: $d_page_bg;
             }
         }
     }
