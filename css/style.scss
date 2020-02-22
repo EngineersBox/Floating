@@ -501,14 +501,14 @@ $wrapper-margin-size: 10%;
 }
 
 .code {
-    width: auto;
-    height: auto;
-    padding: 20px;
     display: flex;
+    padding: 20px;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: #282c34;
     .w-actions {
+        align-self: flex-start;
         .fa-circle {
             margin: 0 0.15em;
             border-radius: 50%;
@@ -524,36 +524,41 @@ $wrapper-margin-size: 10%;
         }
     }
     .w-highlight {
-        width: 100%;
+        padding: 0 2em;
         height: auto;
         border: none;
-        margin: 0 0 -2em 0;
-        padding: 0 20px;
         code {
-            font-family: 'Cousine', ;
+            font-family: 'Cousine';
             font-weight: 400;
             font-size: .95em;
         }
     }
 }
 
+.code-example {
+    flex-direction: row;
+}
+
 .code-about {
-    width: 30%;
+    width: auto;
     padding: 20px 30px;
     display: flex;
     flex-direction: column;
     justify-content: right;
     h1 {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
         font-weight: 400;
         align-self: flex-start;
         margin-bottom: 1em;
+        line-height: 1.6em;
         .decorator-span {
             color: #61aeee;
             background-color: #282c34;
             border-radius: 7px;
             padding: 5px;
-            margin-top: -0.15em;
             margin-left: 0.2em;
         }
         .ts-logo {
@@ -607,6 +612,30 @@ $wrapper-margin-size: 10%;
                 background-position: -6em;
                 color: $d_page_bg;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .code-about {
+        h1 {
+            flex-direction: column;
+            align-items: flex-start;
+            .decorator-span {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1029px) {
+    .code-example {
+        flex-direction: column;
+        .code {
+            width: 100%;
+        }
+        .code-about {
+            margin-top: 1em;;
         }
     }
 }
