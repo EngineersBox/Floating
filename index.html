@@ -22,18 +22,16 @@
 
 <body>
     <span class="dark-mode-toggle">
-        <strong>Dark mode:<br></strong>
-        <input class="container_toggle" type="checkbox" id="switch" name="mode">
-        <label for="switch">Toggle</label>
+        <label for="switch"><i class="fas fa-adjust"><input class="container_toggle" type="checkbox" id="switch" name="mode"></i></label>
     </span>
     <div class="wrapper">
         <div class="sidebar">
             <div class="logo"></div>
             <div class="tabs">
-                <i class="fas fa-home tab" onmouseover="showTooltip('home');" onmouseout="hideTooltip('home');"></i>
-                <i class="fas fa-shield-alt tab" onmouseover="showTooltip('security');" onmouseout="hideTooltip('security');"></i>
-                <i class="fas fa-hdd tab" onmouseover="showTooltip('infrastructure');" onmouseout="hideTooltip('infrastructure');"></i>
-                <i class="fas fa-address-book tab" onmouseover="showTooltip('contact');" onmouseout="hideTooltip('contact');"></i>
+                <i class="fas fa-home tab" onmouseover="tooltipDisplay('home', 'show');" onmouseout="tooltipDisplay('home', 'hide');"></i>
+                <i class="fas fa-shield-alt tab" onmouseover="tooltipDisplay('security', 'show');" onmouseout="tooltipDisplay('security', 'hide');"></i>
+                <i class="fas fa-hdd tab" onmouseover="tooltipDisplay('infrastructure', 'show');" onmouseout="tooltipDisplay('infrastructure', 'hide');"></i>
+                <i class="fas fa-address-book tab" onmouseover="tooltipDisplay('contact', 'show');" onmouseout="tooltipDisplay('contact', 'hide');"></i>
                 <div class="tooltip-container">
                     <div class="tooltip" id="home"><i class="fas fa-caret-left"></i>Home</div>
                     <div class="tooltip" id="security"><i class="fas fa-caret-left"></i>Security</div>
@@ -105,6 +103,7 @@ function Emoji() {
                 TypeScript
                 <span class="decorator-span">@Decorators</span>
             </h1>
+            <hr>
             <div class="text-container">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt fugiat adipisci aspernatur <span class="emphasise">sequi excepturi</span>, quod assumenda nisi quam enim natus eius impedit ut quos illo porro, recusandae minima nihil?
                     Accusamus?
@@ -124,7 +123,7 @@ function Emoji() {
             <li>Abstract liquid bubbles shapes at <a href="https://www.vectorstock.com/royalty-free-vector/abstract-liquid-bubbles-shapes-vector-14987675 " target="_blank "> VectorStock</a></li>
             <li>Background with abstract shapes at <a href="https://www.vectorstock.com/royalty-free-vector/background-with-abstract-shapes-vector-14987616" target="_blank"> VectorStock</a></li>
             <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
-            <li><a target="_blank" href="https://icons8.com/icons/set/typescript">Color icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+            <li><a target="_blank" href="https://icons8.com/icons/set/typescript">Typescript icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
         </ul>
     </div>
     <script src="js/main.js"></script>

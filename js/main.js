@@ -30,36 +30,22 @@ window.addEventListener('scroll', function() {
     }
 });
 
-window.addEventListener('resize', function() {
-    if (window.innerWidth >= 830) {
-        return;
-    }
-    if (window.scrollY <= navBarChangeDist) {
-        // SHOW NORMAL TABS
-        return;
-    }
-    //SHOW BURGER MENU
-});
-
 function showCredits() {
-    let showCredits = document.getElementById("show-credits").checked;
+    const showCredits = document.getElementById("show-credits").checked;
+    const creditations = document.getElementById("creditations").style;
     if (showCredits) {
-        document.getElementById("creditations").style.visibility = "visible";
-        document.getElementById("creditations").style.opacity = 1;
+        creditations.visibility = "visible";
+        creditations.opacity = 1;
     } else {
-        document.getElementById("creditations").style.opacity = 0;
-        document.getElementById("creditations").style.visibility = "hidden";
+        creditations.opacity = 0;
+        creditations.visibility = "hidden";
     }
 }
 
-function showTooltip(target) {
+function tooltipDisplay(target, render) {
     const t = document.getElementById(target).style;
-    t.opacity = 0.9;
-    t.transform = 'translate' + (window.scrollY > navBarChangeDist ? 'Y' : 'X') + '(0em)';
-}
+    const isShown = render === "show";
 
-function hideTooltip(target) {
-    const t = document.getElementById(target).style;
-    t.opacity = 0;
-    t.transform = 'translate' + (window.scrollY > navBarChangeDist ? 'Y' : 'X') + '(2em)';
+    t.opacity = isShown ? 0.9 : 0;
+    t.transform = 'translate' + (window.scrollY > navBarChangeDist ? 'Y' : 'X') + '(' + (isShown ? 0 : 2) + 'em)';
 }

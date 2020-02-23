@@ -32,6 +32,27 @@ $d_shadow: 10px 10px 20px rgba(5,
     transition: all 0.25s ease-in-out;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 2.5px;
+    border-radius: 2.5px;
+    background: $l_page_bg;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 15px;
+    background: $d_page_bg;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: $d_page_bg;
+}
+
 html {
     background: $l_page_bg;
     font-family: 'Montserrat', sans-serif;
@@ -40,6 +61,18 @@ html {
 
 html[data-theme='dark'] {
     background: $d_page_bg;
+     ::-webkit-scrollbar-track {
+        background: $d_page_bg;
+    }
+     ::-webkit-scrollbar-thumb {
+        background: $l_page_bg;
+    }
+     ::-webkit-scrollbar-thumb:window-inactive {
+        background: $l_page_bg;
+    }
+    hr {
+        border-color: $l_page_bg;
+    }
     .overlap-content {
         color: $l_page_bg;
         box-shadow: $d_shadow;
@@ -68,8 +101,10 @@ html[data-theme='dark'] {
         box-shadow: $d_shadow;
     }
     .dark-mode-toggle {
-        background: $l_page_bg;
-        color: $d_page_bg;
+        background-color: $d_page_bg;
+        label i {
+            color: $l_page_bg;
+        }
     }
     .tooltip,
     .tooltip-top {
@@ -84,8 +119,13 @@ html[data-theme='dark'] {
     }
     .code-about {
         color: $l_page_bg;
+        background-image: url("../img/orange-bubbles-dark.png");
         .text-container {
             color: $l_page_bg;
+            background-color: $d_page_bg;
+            .emphasise:hover {
+                color: lighten($d_page_bg, 20);
+            }
         }
     }
 }
@@ -95,48 +135,34 @@ body {
     padding: 0;
 }
 
+hr {
+    width: 100%;
+    border: 0.5px solid $d_page_bg;
+}
+
 .dark-mode-toggle {
     position: fixed;
-    bottom: 1.5em;
-    left: 1.5em;
-    background: $d_page_bg;
-    padding: 0.7em;
-    border-radius: 15px;
-    color: $l_page_bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 1em;
+    left: 1em;
+    border-radius: 50%;
+    background-color: $l_page_bg;
+    width: 40px;
+    height: 40px;
     input[type=checkbox] {
         visibility: hidden;
         height: 0;
         width: 0;
+        margin: 0;
     }
     label {
-        margin: 0 auto;
-        display: flex;
-        border-radius: 100px;
-        position: relative;
-        cursor: pointer;
-        text-indent: -9999px;
-        width: 55px;
-        height: 30px;
-        background: darken($l_page_bg, 10);
-        transition: all 0.25s ease-in-out;
-    }
-    label:after {
-        border-radius: 50%;
-        position: absolute;
-        content: '';
-        background: #fff;
-        width: 20px;
-        height: 20px;
-        top: 5px;
-        left: 4px;
-        transition: ease-in-out 200ms;
-    }
-    input:checked+label {
-        background: #3cea93;
-    }
-    input:checked+label:after {
-        left: calc(100% - 5px);
-        transform: translateX(-100%);
+        i {
+            font-size: 45px;
+            color: $d_page_bg;
+            cursor: pointer;
+        }
     }
 }
 
@@ -296,6 +322,7 @@ $wrapper-margin-size: 10%;
         transition: all 0.25s ease-in-out;
         cursor: pointer;
         &:hover {
+            margin: 0.5em 1.4em 0 1.4em;
             background-position: -1.5em;
         }
     }
@@ -321,6 +348,7 @@ $wrapper-margin-size: 10%;
         transition: all 0.25s ease-in-out;
         cursor: pointer;
         &:hover {
+            margin: 0.5em 0 0.5em 0.5em;
             background-position: -1.5em;
         }
     }
@@ -502,13 +530,14 @@ $wrapper-margin-size: 10%;
 
 .code {
     display: flex;
-    padding: 20px;
+    width: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #282c34;
     .w-actions {
         align-self: flex-start;
+        margin: 1em 0 0 1em;
         .fa-circle {
             margin: 0 0.15em;
             border-radius: 50%;
@@ -524,13 +553,17 @@ $wrapper-margin-size: 10%;
         }
     }
     .w-highlight {
-        padding: 0 2em;
+        width: 90%;
         height: auto;
         border: none;
-        code {
-            font-family: 'Cousine';
-            font-weight: 400;
-            font-size: .95em;
+        pre {
+            width: calc(100% - 40px);
+            code {
+                overflow-x: scroll;
+                font-family: 'Cousine';
+                font-weight: 400;
+                font-size: .95em;
+            }
         }
     }
 }
@@ -545,6 +578,10 @@ $wrapper-margin-size: 10%;
     display: flex;
     flex-direction: column;
     justify-content: right;
+    background-image: url("../img/orange-bubbles.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     h1 {
         display: flex;
         align-items: center;
@@ -577,6 +614,9 @@ $wrapper-margin-size: 10%;
         display: flex;
         flex-direction: column;
         color: $d_page_bg;
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
         p {
             width: auto;
             line-height: 1.4em;
@@ -586,7 +626,7 @@ $wrapper-margin-size: 10%;
             transition: all 0.25s ease-in-out;
             &:hover {
                 border-bottom: 2px solid darken(#ff7154, 10);
-                color: lighten($d_page_bg, 20);
+                color: darken($l_page_bg, 20);
             }
         }
         input[type=button] {
@@ -597,12 +637,12 @@ $wrapper-margin-size: 10%;
             display: flex;
             align-self: flex-end;
             justify-content: center;
-            width: 5em;
+            width: 4em;
             height: 1.2em;
             color: $l_page_bg;
             font-size: 20px;
             border-radius: 1.5em;
-            padding: 0.4em 7%;
+            padding: 0.4em 30px;
             @include gradient_yellow-purple(right);
             background-size: 15em auto;
             cursor: pointer;
@@ -635,7 +675,25 @@ $wrapper-margin-size: 10%;
             width: 100%;
         }
         .code-about {
-            margin-top: 1em;;
+            margin-top: 1em;
+            h1 {
+                flex-direction: row;
+                align-items: center;
+                .decorator-span {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 558px) {
+    .code-example {
+        .code-about {
+            h1 {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     }
 }
