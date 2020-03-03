@@ -700,7 +700,6 @@ hr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -743,11 +742,7 @@ hr {
   border: none;
 }
 
-.code .w-highlight pre {
-  width: calc(100% - 40px);
-}
-
-.code .w-highlight pre code {
+.code .w-highlight code {
   overflow-x: scroll;
   font-family: 'Cousine';
   font-weight: 400;
@@ -912,7 +907,7 @@ hr {
     width: 100%;
   }
   .code-example .code-about {
-    margin-top: 1em;
+    margin: 1em 0 0 0;
   }
   .code-example .code-about h1 {
     -webkit-box-orient: horizontal;

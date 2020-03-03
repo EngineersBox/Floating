@@ -530,7 +530,6 @@ $wrapper-margin-size: 10%;
 
 .code {
     display: flex;
-    width: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -556,14 +555,11 @@ $wrapper-margin-size: 10%;
         width: 90%;
         height: auto;
         border: none;
-        pre {
-            width: calc(100% - 40px);
-            code {
-                overflow-x: scroll;
-                font-family: 'Cousine';
-                font-weight: 400;
-                font-size: .95em;
-            }
+        code {
+            overflow-x: scroll;
+            font-family: 'Cousine';
+            font-weight: 400;
+            font-size: .95em;
         }
     }
 }
@@ -675,7 +671,7 @@ $wrapper-margin-size: 10%;
             width: 100%;
         }
         .code-about {
-            margin-top: 1em;
+            margin: 1em 0 0 0;
             h1 {
                 flex-direction: row;
                 align-items: center;
